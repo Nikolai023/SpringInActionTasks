@@ -50,6 +50,9 @@ public class Order implements Serializable {
     @ManyToMany(targetEntity = Taco.class)
     private List<Taco> tacos = new ArrayList<>();
 
+    @ManyToOne
+    private User user;
+
     public void addDesign(Taco design) {
         this.tacos.add(design);
     }
@@ -58,5 +61,5 @@ public class Order implements Serializable {
     void placedAt() {
         this.placedAt = new Date();
     }
-    
+
 }
