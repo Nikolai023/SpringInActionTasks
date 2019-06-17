@@ -2,7 +2,6 @@ package tacos.web.api;
 
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
-import org.springframework.hateoas.EntityLinks;
 import org.springframework.hateoas.Resources;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,18 +15,15 @@ import java.util.Optional;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
-@RestController
+@RestController("designTacoRestController")
 @RequestMapping(path = "/design",
         produces = "application/json")
 @CrossOrigin(origins = "*")
 public class DesignTacoController {
     private TacoRepository tacoRepo;
 
-    private EntityLinks entityLinks;
-
-    public DesignTacoController(TacoRepository tacoRepo, EntityLinks entityLinks) {
+    public DesignTacoController(TacoRepository tacoRepo) {
         this.tacoRepo = tacoRepo;
-        this.entityLinks = entityLinks;
     }
 
     @GetMapping("/recent")
